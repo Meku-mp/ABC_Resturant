@@ -34,8 +34,8 @@ pageEncoding="ISO-8859-1"%>
     <link href="fonts/flaticon.css" rel="stylesheet">
     <!-- ========== GOOGLE FONTS ========== -->
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CRoboto:100,300,400,400i,500,700" rel="stylesheet">
-  </head>
-  <body class="dark">
+	  </head>
+	  <body class="dark">
    <!-- ========== MOBILE MENU ========== -->
  <nav id="mobile-menu"> </nav>
    <!--Navbar-->
@@ -250,8 +250,8 @@ pageEncoding="ISO-8859-1"%>
     <section class="rooms gray">
         <div class="container">
           <div class="section-title">
-            <h4>OUR ROOMS</h4>
-            <p class="section-subtitle">Most Popular Rooms</p>
+            <h4>OUR FACILITIES</h4>
+            <p class="section-subtitle">Most Popular Facilities</p>
             <a href="rooms-list.html" class="view-all">View all rooms</a>
           </div>
           <div class="row">
@@ -267,13 +267,13 @@ pageEncoding="ISO-8859-1"%>
                     <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
                     <i class="fa fa-television" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Plasma TV with cable channels" data-original-title="TV"></i>
                   </div>
-                  <div class="room-price">LKR 100,000 / night</div>
+                  <div class="room-price">Day / night</div>
                 </figure>
                 <div class="room-info">
                   <h2 class="room-title">
-                    <a href="room.html">Premier Ocean Room</a>
+                    <a href="room.html">Dining Area</a>
                   </h2>
-                  <p>With pool access</p>
+                  <p>See More</p>
                 </div>
               </div>
             </div>
@@ -289,13 +289,13 @@ pageEncoding="ISO-8859-1"%>
                     <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
                     <i class="fa fa-television" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Plasma TV with cable channels" data-original-title="TV"></i>
                   </div>
-                  <div class="room-price">LKR 120,000 / night</div>
+                  <div class="room-price">Day / night</div>
                 </figure>
                 <div class="room-info">
                   <h2 class="room-title">
-                    <a href="room.html">Deluxe Ocean Room</a>
+                    <a href="room.html">Bar Area</a>
                   </h2>
-                  <p>With Inroom Pool Access</p>
+                  <p>See More</p>
                 </div>
               </div>
             </div>
@@ -312,13 +312,13 @@ pageEncoding="ISO-8859-1"%>
                     <i class="fa fa-wifi" aria-hidden="true" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Free WiFi" data-original-title="WiFi"></i>
                     <i class="fa fa-television" data-toggle="popover" data-placement="right" data-trigger="hover" data-content="Plasma TV with cable channels" data-original-title="TV"></i>
                   </div>
-                  <div class="room-price">LKR 200,000/night</div>
+                  <div class="room-price">Day / night</div>
                 </figure>
                 <div class="room-info">
                   <h2 class="room-title">
-                    <a href="room.html">Ocean & Pool Villa</a>
+                    <a href="room.html">Parking</a>
                   </h2>
-                  <p>Enjoy our delux room</p>
+                  <p>See More</p>
                 </div>
               </div>
             </div>

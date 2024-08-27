@@ -66,49 +66,19 @@
             <span class="line"></span>
         </div>
         <!-- MAIN MENU -->
-        <nav id="main-menu" class="main-menu">
-            <ul class="menu">
-                <li class="menu-item dropdown ">
-                    <a href="/" >HOME</a>
 
-                </li>
-                <li class="menu-item dropdown">
-                    <a href="#" >ROOMS</a>
-
-                </li>
-                <li class="menu-item dropdown">
-                    <a href="#" >CONFERENCE HALLS</a>
-
-                </li>
-                <li class="menu-item dropdown">
-                    <a href="#">DINING</a>
-
-                </li>
-
-                <li class="menu-item">
-                    <a href="contact.html" >CONTACT US</a>
-                </li>
-                <li class="menu-item menu-btn">
-                    <a href="/signin" class="btn ">
-
-                        SIGN IN</a>
-                </li>
-                <li class="menu-item dropdown active">
-                    <a class="signup-nav signuplink " href="#">SIGN UP</a>
-                </li>
-            </ul>
-        </nav>
     </div>
 </header>
 <!-- ========== Sign up ========== -->
-<section class="contact ">
+<section class="contact " style="background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/abc.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
     <div class="container full">
         <div class="row">
             <div class="bg-img"></div>
             <div class="col-lg-6 text ">
-                <div class="section-title">
-                    <h4>Hello <br>There</h4>
-                    <p class="section-subtitle">Sign up and start planning your vacation</p>
+            <br/><br/><br/>
+                <div class="section-title" style="z-index: 5; Display;letter-spacing: 3px; color: #ffffff; font-weight: 800;">
+                    <h4 style="color:white">Hello <br>WELCOME</h4>
+                    <p class="section-subtitle" style="color:white">Sign up and start planning your vacation</p>
                 </div>
 
 
@@ -118,17 +88,20 @@
                 </div>
 
             </div>
-            <div class="col-lg-6 sign-form">
+            
+            <div class="col-lg-6 sign-form" >
+            
                 <form method=post id="contact-form" name="contact-form" class="needs-validation" oninput='confirmpassword.setCustomValidity(confirmpassword.value != password.value ? "Passwords do not match." : "")' novalidate>
-                    <h4 class="form-title">Sign Up With us</h4>
+                                <h4 class="form-title" style="color: #f1c40f; text-align: center;">Register Now</h4>  
+                  <br/>
                     <div class="form-group has-validation">
-                        <input class="form-control" name="name" placeholder="Fist Name" type="text"id="validationFirstname" required>
+                        <input class="form-control" name="fname" placeholder="Fist Name" type="text"id="validationFirstname" required>
                         <div class="invalid-feedback">
                             This field cannot be empty.
                         </div>
                     </div>
                     <div class="form-group has-validation">
-                        <input class="form-control" name="name" placeholder="Last Name" type="text" id="validationLastname" required>
+                        <input class="form-control" name="lname" placeholder="Last Name" type="text" id="validationLastname" required>
                         <div class="invalid-feedback">
                             This field cannot be empty.
                         </div>
@@ -152,14 +125,15 @@
                         </div>
                     </div>
                     <div class="form-group has-validation">
-                        <input class="form-control" name="confirmpassword" type="password" placeholder="Confirm Password" id="validationConfirmPassword" required>
+                        <input class="form-control" name="confirmPassword" type="password" placeholder="Confirm Password" id="validationConfirmPassword" required>
                         <div class="invalid-feedback" id="password-empty">
                             Please confirm your password.
                         </div>
 
                     </div>
-                    <button class="btn btn-fw btn-light" type="submit" id="signUp">
-                        Sign Up</button>
+                  <button class="btn btn-fw btn-light" type="submit"
+							style="background-color: #f1c40f; color: #2b2b2b; width: 100%; padding: 10px;">Sign
+							Up</button>
                 </form>
             </div>
         </div>
@@ -244,7 +218,6 @@
 <%--<script src="js/jquery.min.js"></script>--%>
 
 <!-- ========== Page JS ========== -->
-<script src="js/page/signUp.js"></script>
 <script>
 
 </script>
