@@ -3,19 +3,19 @@ package model;
 import java.util.Date;
 
 public class Query {
-	private Long Id;
+	private int Id;
     private String QueryText;
     private Date QueryDate;
     private String CustomerName;
     private String CustomerEmail;
-    private Long RestaurantId;
+    private int RestaurantId;
 
     // Default constructor
     public Query() {
     }
 
     // Parameterized constructor
-    public Query(Long id, String queryText, Date queryDate, String customerName, String customerEmail, Long restaurantId) {
+    public Query(int id, String queryText, Date queryDate, String customerName, String customerEmail, int restaurantId) {
         this.Id = id;
         this.QueryText = queryText;
         this.QueryDate = queryDate;
@@ -25,11 +25,11 @@ public class Query {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 
@@ -65,11 +65,11 @@ public class Query {
         this.CustomerEmail = customerEmail;
     }
 
-    public Long getRestaurantId() {
+    public int getRestaurantId() {
         return RestaurantId;
     }
 
-    public void setRestaurantId(Long restaurantId) {
+    public void setRestaurantId(int restaurantId) {
         this.RestaurantId = restaurantId;
     }
 
