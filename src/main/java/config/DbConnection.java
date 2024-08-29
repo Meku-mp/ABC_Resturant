@@ -11,7 +11,7 @@ public class DbConnection {
     public Connection getConnection() {
 
         Connection connection = null;
-        String path = "jdbc:mysql://localhost:3306/abc_hotel";
+        String path = "jdbc:mysql://localhost:3306/abc_restaurant_2";
 
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

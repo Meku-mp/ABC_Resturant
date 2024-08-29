@@ -19,4 +19,12 @@ public class GlobalClass {
 		}
 	}
 
+	public static void main(String[] args) {
+		GlobalClass globalClass = new GlobalClass();
+		String password = "testadmin";
+		String hashedPassword = globalClass.hashPassword(password);
+		System.out.println("Original Password: " + password);
+		System.out.println("Hashed Password: " + hashedPassword);
+	}
+
 }
