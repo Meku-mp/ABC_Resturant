@@ -10,19 +10,20 @@ import javax.servlet.http.HttpServletResponse;
 
 import config.GlobalClass;
 import dao.CustomerDao;
-import model.Customer;
+import dao.StaffDao;
+import model.Staff;
 
 /**
- * Servlet implementation class CustomerInsertServlet
+ * Servlet implementation class StaffCreateServlet
  */
-@WebServlet(name = "CustomerInsertServlet", value = "/CustomerInsertServlet")
-public class CustomerInsertServlet extends HttpServlet {
+@WebServlet(name = "StaffCreateServlet", value = "/StaffCreateServlet")
+public class StaffCreateServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CustomerInsertServlet() {
+	public StaffCreateServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -44,39 +45,37 @@ public class CustomerInsertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		var customer = new Customer();
-		var globalClass = new GlobalClass();
-		
-		var fullName = request.getParameter("fullname");
-		var email = request.getParameter("email");
-		var phone = request.getParameter("phone");
+		var name = request.getParameter("name");
+		var position = request.getParameter("position");
+		var salary = request.getParameter("salary");
+		var resId = request.getParameter("restaurantId");
 		var username = request.getParameter("username");
 		var password = request.getParameter("password");
+		
+		Cookie cookies[] = request.getCookies();
+        int adminId = 0;
 
-		customer.setFullName(fullName);
-		customer.setEmail(email);
-		customer.setPhone(phone);
-		customer.setUsername(username);
-		customer.setPassword(globalClass.hashPassword(password));
+        for (Cookie c : cookies) {
+            if (c.getName().equals("adminId")) {
+            	adminId = Integer.parseInt(c.getValue());
+            }
+        }
 
-		var insertedCustomer = new CustomerDao().insertCustomer(customer);
+		var staff = new Staff();
+		var globalClass = new GlobalClass();
 
-		if (insertedCustomer != null) {
-			Cookie cookies[] = request.getCookies();
+		staff.setName(name);
+		staff.setPosition(position);
+		staff.setSalary(Double.parseDouble(salary));
+		staff.setRestaurantId(Integer.parseInt(resId));
+		staff.setUsername(username);
+		staff.setPassword(globalClass.hashPassword(password));
+		staff.setCreateBy(adminId);
 
-			for (Cookie c : cookies) {
-				if (c.getName().equals("userId")) {
-					c.setValue(insertedCustomer.getId() + "");
-					c.setMaxAge(60 * 60);
-					response.addCookie(c);
-				} else {
-					Cookie adId = new Cookie("userId", insertedCustomer.getId() + "");
-					adId.setMaxAge(60 * 60);
-					response.addCookie(adId);
-				}
-			}
+		var insertedStaff = new StaffDao().createStaff(staff);
 
-			response.sendRedirect("profile.jsp");
+		if (insertedStaff != null) {
+			response.sendRedirect("admin/staff.jsp?created=true");
 		}
 	}
 

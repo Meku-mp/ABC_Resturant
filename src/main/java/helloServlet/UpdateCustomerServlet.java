@@ -13,16 +13,16 @@ import dao.CustomerDao;
 import model.Customer;
 
 /**
- * Servlet implementation class CustomerInsertServlet
+ * Servlet implementation class UpdateCustomerServlet
  */
-@WebServlet(name = "CustomerInsertServlet", value = "/CustomerInsertServlet")
-public class CustomerInsertServlet extends HttpServlet {
+@WebServlet(name = "UpdateCustomerServlet", value = "/UpdateCustomerServlet")
+public class UpdateCustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
 	/**
 	 * @see HttpServlet#HttpServlet()
 	 */
-	public CustomerInsertServlet() {
+	public UpdateCustomerServlet() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
@@ -44,39 +44,44 @@ public class CustomerInsertServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		var customer = new Customer();
-		var globalClass = new GlobalClass();
-		
-		var fullName = request.getParameter("fullname");
-		var email = request.getParameter("email");
-		var phone = request.getParameter("phone");
-		var username = request.getParameter("username");
-		var password = request.getParameter("password");
+		// Retrieve form parameters
+		Cookie cookies[] = request.getCookies();
+		int userId = 0;
 
+		for (Cookie c : cookies) {
+			if (c.getName().equals("userId")) {
+				userId = Integer.parseInt(c.getValue());
+			}
+		}
+		
+		GlobalClass globalClass = new GlobalClass();
+		
+		String fullName = request.getParameter("fullName");
+		String email = request.getParameter("email");
+		String phone = request.getParameter("contactNo");
+		String username = request.getParameter("username");
+		String password = request.getParameter("password");
+
+		// Create Customer object
+		Customer customer = new Customer();
+		customer.setId(userId);
 		customer.setFullName(fullName);
 		customer.setEmail(email);
 		customer.setPhone(phone);
 		customer.setUsername(username);
 		customer.setPassword(globalClass.hashPassword(password));
 
-		var insertedCustomer = new CustomerDao().insertCustomer(customer);
+		// Update customer in database
+		CustomerDao customerDao = new CustomerDao();
+		Customer updatedCustomer = customerDao.updateCustomer(customer);
 
-		if (insertedCustomer != null) {
-			Cookie cookies[] = request.getCookies();
-
-			for (Cookie c : cookies) {
-				if (c.getName().equals("userId")) {
-					c.setValue(insertedCustomer.getId() + "");
-					c.setMaxAge(60 * 60);
-					response.addCookie(c);
-				} else {
-					Cookie adId = new Cookie("userId", insertedCustomer.getId() + "");
-					adId.setMaxAge(60 * 60);
-					response.addCookie(adId);
-				}
-			}
-
-			response.sendRedirect("profile.jsp");
+		// Check if update was successful
+		if (updatedCustomer != null) {
+			// Update was successful
+			response.sendRedirect("profile.jsp?updateSuccess=true");
+		} else {
+			// Update failed
+			response.sendRedirect("editProfile.jsp?updateSuccess=false");
 		}
 	}
 
