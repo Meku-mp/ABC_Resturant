@@ -1,11 +1,11 @@
 package model;
 
 public class Food {
-	private Long Id;
+	private int Id;
     private String Name;
     private String Description;
     private Double Price;
-    private Long RestaurantId;
+    private int RestaurantId;
     private String ImagePath;
 
     // Default constructor
@@ -13,7 +13,7 @@ public class Food {
     }
 
     // Parameterized constructor
-    public Food(Long id, String name, String description, Double price, Long restaurantId, String imagePath) {
+    public Food(int id, String name, String description, Double price, int restaurantId, String imagePath) {
         this.Id = id;
         this.Name = name;
         this.Description = description;
@@ -23,11 +23,11 @@ public class Food {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 
@@ -55,11 +55,11 @@ public class Food {
         this.Price = price;
     }
 
-    public Long getRestaurantId() {
+    public int getRestaurantId() {
         return RestaurantId;
     }
 
-    public void setRestaurantId(Long restaurantId) {
+    public void setRestaurantId(int restaurantId) {
         this.RestaurantId = restaurantId;
     }
 

@@ -3,78 +3,105 @@ package model;
 import java.util.Date;
 
 public class Reservation {
-	private Long Id;
-    private Long CustomerId;
-    private Long RestaurantId;
-    private Date ReservationDate;
-    private Integer NumberOfPeople;
-    private String SpecialRequests;
+	private int Id;
+	private Date ReservationDate;
+	private int NumberOfGuests;
+	private int CustomerId;
+	private int RestaurantId;
+	private int Type;
+	private double Price;
+	private int FoodId;
+	private int Status;
 
-    // Default constructor
-    public Reservation() {
-    }
+	// Default constructor
+	public Reservation() {
+	}
 
-    // Parameterized constructor
-    public Reservation(Long id, Long customerId, Long restaurantId, Date reservationDate, Integer numberOfPeople, String specialRequests) {
-        this.Id = id;
-        this.CustomerId = customerId;
-        this.RestaurantId = restaurantId;
-        this.ReservationDate = reservationDate;
-        this.NumberOfPeople = numberOfPeople;
-        this.SpecialRequests = specialRequests;
-    }
+	// Parameterized constructor
+	public Reservation(int id, Date reservationDate, int numberOfGuests, int customerId, int restaurantId, int type,
+			double price, int foodId, int status) {
+		this.Id = id;
+		this.ReservationDate = reservationDate;
+		this.NumberOfGuests = numberOfGuests;
+		this.CustomerId = customerId;
+		this.RestaurantId = restaurantId;
+		this.Type = type;
+		this.Price = price;
+		this.FoodId = foodId;
+		this.Status = status;
+	}
 
-    // Getters and Setters
-    public Long getId() {
-        return Id;
-    }
+	// Getters and Setters
+	public int getId() {
+		return Id;
+	}
 
-    public void setId(Long id) {
-        this.Id = id;
-    }
+	public void setId(int id) {
+		this.Id = id;
+	}
 
-    public Long getCustomerId() {
-        return CustomerId;
-    }
+	public Date getReservationDate() {
+		return ReservationDate;
+	}
 
-    public void setCustomerId(Long customerId) {
-        this.CustomerId = customerId;
-    }
+	public void setReservationDate(Date reservationDate) {
+		this.ReservationDate = reservationDate;
+	}
 
-    public Long getRestaurantId() {
-        return RestaurantId;
-    }
+	public int getNumberOfGuests() {
+		return NumberOfGuests;
+	}
 
-    public void setRestaurantId(Long restaurantId) {
-        this.RestaurantId = restaurantId;
-    }
+	public void setNumberOfGuests(int numberOfGuests) {
+		this.NumberOfGuests = numberOfGuests;
+	}
 
-    public Date getReservationDate() {
-        return ReservationDate;
-    }
+	public int getCustomerId() {
+		return CustomerId;
+	}
 
-    public void setReservationDate(Date reservationDate) {
-        this.ReservationDate = reservationDate;
-    }
+	public void setCustomerId(int customerId) {
+		this.CustomerId = customerId;
+	}
 
-    public Integer getNumberOfPeople() {
-        return NumberOfPeople;
-    }
+	public int getRestaurantId() {
+		return RestaurantId;
+	}
 
-    public void setNumberOfPeople(Integer numberOfPeople) {
-        this.NumberOfPeople = numberOfPeople;
-    }
+	public void setRestaurantId(int restaurantId) {
+		this.RestaurantId = restaurantId;
+	}
 
-    public String getSpecialRequests() {
-        return SpecialRequests;
-    }
+	public int getType() {
+		return Type;
+	}
 
-    public void setSpecialRequests(String specialRequests) {
-        this.SpecialRequests = specialRequests;
-    }
+	public void setType(int type) {
+		this.Type = type;
+	}
 
-    @Override
-    public String toString() {
-        return "Reservation [Id=" + Id + ", CustomerId=" + CustomerId + ", RestaurantId=" + RestaurantId + ", ReservationDate=" + ReservationDate + ", NumberOfPeople=" + NumberOfPeople + ", SpecialRequests=" + SpecialRequests + "]";
-    }
+	public double getPrice() {
+		return Price;
+	}
+
+	public void setPrice(double price) {
+		this.Price = price;
+	}
+
+	public int getFoodId() {
+		return FoodId;
+	}
+
+	public void setFoodId(int foodId) {
+		this.FoodId = foodId;
+	}
+
+	public int getStatus() {
+		return Status;
+	}
+
+	public void setStatus(int status) {
+		this.Status = status;
+	}
+
 }

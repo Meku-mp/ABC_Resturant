@@ -3,14 +3,14 @@ package model;
 import java.util.Date;
 
 public class Staff {
-	private Long Id;
+	private int Id;
     private String Name;
     private String Position;
     private Double Salary;
-    private Long RestaurantId; // ID of the restaurant the staff is associated with
+    private int RestaurantId; // ID of the restaurant the staff is associated with
     private String Username;
     private String Password;
-    private Long CreateBy; // ID of the admin who created the staff record
+    private int CreateBy; // ID of the admin who created the staff record
     private Date CreateDate; // Date when the staff record was created
 
     // Default constructor
@@ -18,7 +18,7 @@ public class Staff {
     }
 
     // Parameterized constructor
-    public Staff(Long id, String name, String position, Double salary, Long restaurantId, String username, String password, Long createBy, Date createDate) {
+    public Staff(int id, String name, String position, Double salary, int restaurantId, String username, String password, int createBy, Date createDate) {
         this.Id = id;
         this.Name = name;
         this.Position = position;
@@ -31,11 +31,11 @@ public class Staff {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 
@@ -63,11 +63,11 @@ public class Staff {
         this.Salary = salary;
     }
 
-    public Long getRestaurantId() {
+    public int getRestaurantId() {
         return RestaurantId;
     }
 
-    public void setRestaurantId(Long restaurantId) {
+    public void setRestaurantId(int restaurantId) {
         this.RestaurantId = restaurantId;
     }
 
@@ -87,11 +87,11 @@ public class Staff {
         this.Password = password;
     }
 
-    public Long getCreateBy() {
+    public int getCreateBy() {
         return CreateBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(int createBy) {
         this.CreateBy = createBy;
     }
 

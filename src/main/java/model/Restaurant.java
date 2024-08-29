@@ -3,11 +3,11 @@ package model;
 import java.util.Date;
 
 public class Restaurant {
-	private Long Id;
+	private int Id;
     private String Name;
     private String Location;
     private Double Rate;
-    private Long CreateBy; // ID of the admin who created the restaurant record
+    private int CreateBy; // ID of the admin who created the restaurant record
     private Date CreateDate; // Date when the restaurant record was created
 
     // Default constructor
@@ -15,7 +15,7 @@ public class Restaurant {
     }
 
     // Parameterized constructor
-    public Restaurant(Long id, String name, String location, Double rate, Long createBy, Date createDate) {
+    public Restaurant(int id, String name, String location, Double rate, int createBy, Date createDate) {
         this.Id = id;
         this.Name = name;
         this.Location = location;
@@ -25,11 +25,11 @@ public class Restaurant {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 
@@ -57,11 +57,11 @@ public class Restaurant {
         this.Rate = rate;
     }
 
-    public Long getCreateBy() {
+    public int getCreateBy() {
         return CreateBy;
     }
 
-    public void setCreateBy(Long createBy) {
+    public void setCreateBy(int createBy) {
         this.CreateBy = createBy;
     }
 

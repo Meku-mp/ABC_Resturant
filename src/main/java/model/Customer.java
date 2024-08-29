@@ -1,7 +1,7 @@
 package model;
 
 public class Customer {
-	private Long Id;
+	private int Id;
     private String FullName;
     private String Email;
     private String Phone;
@@ -13,7 +13,7 @@ public class Customer {
     }
 
     // Parameterized constructor
-    public Customer(Long id, String fullName, String email, String phone, String username, String password) {
+    public Customer(int id, String fullName, String email, String phone, String username, String password) {
         this.Id = id;
         this.FullName = fullName;
         this.Email = email;
@@ -23,11 +23,11 @@ public class Customer {
     }
 
     // Getters and Setters
-    public Long getId() {
+    public int getId() {
         return Id;
     }
 
-    public void setId(Long id) {
+    public void setId(int id) {
         this.Id = id;
     }
 
