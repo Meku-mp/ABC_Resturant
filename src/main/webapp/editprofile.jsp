@@ -1,6 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
 <!DOCTYPE html>
+<%@page import="java.sql.ResultSet"%>
+<%@page import="java.sql.PreparedStatement"%>
+<%@page import="java.sql.Connection"%>
+<%@page import="config.DbConnection"%>
+<%@page import="java.sql.SQLException"%>
 <html lang="en">
 <head>
 <meta charset="utf-8">
@@ -8,7 +11,7 @@
 <meta content="width=device-width, initial-scale=1, maximum-scale=1"
 	name="viewport">
 <!-- ========== SEO ========== -->
-<title>ABC Resturent</title>
+<title>EDIT PROFILE</title>
 <meta content="" name="description">
 <meta content="" name="keywords">
 <meta content="" name="author">
@@ -30,7 +33,11 @@
 <link rel="stylesheet" href="css/responsive.css">
 <link rel="stylesheet" href="style/style.css">
 <link rel="stylesheet" href="style/stylesignin.css">
-<link rel="stylesheet" href="style/stylesignup.css">
+<link rel="stylesheet" href="style/userdashboard.css">
+
+<link rel="stylesheet" href="style/guestdetails.css">
+<link rel="stylesheet" href="style/profile.css">
+
 
 <!-- ========== ICON FONTS ========== -->
 <link href="fonts/font-awesome.min.css" rel="stylesheet">
@@ -43,9 +50,23 @@
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
 </head>
-<body class="dark">
+<body class="light">
+	<%
+	int userId = 0;
+
+	Cookie cookies[] = request.getCookies();
+
+	for (Cookie c : cookies) {
+		if (c.getName().equals("userId")) {
+			userId = Integer.parseInt(c.getValue());
+		}
+	}
+
+	if (userId == 0) {
+		response.sendRedirect("signin.jsp");
+	}
+	%>
 	<!-- ========== MOBILE MENU ========== -->
 	<nav id="mobile-menu"></nav>
 	<!--Navbar-->
@@ -58,8 +79,8 @@
 			<!-- BRAND -->
 			<div class="brand">
 				<div class="logo">
-					<a href="/"> <img src="images/logo ABC.png" class="nav-logo"
-						alt="Hotel" style="width: 150px;">
+					<a href="index.html"> <img src="images/logo.png"
+						class="nav-logo" alt="Hotel Himara">
 					</a>
 				</div>
 			</div>
@@ -69,87 +90,117 @@
 					class="line"></span>
 			</div>
 			<!-- MAIN MENU -->
+			<nav id="main-menu" class="main-menu">
+				<ul class="menu">
+					<li class="menu-item dropdown  "><a href="index.html">HOME</a>
 
+					</li>
+					<li class="menu-item dropdown"><a href="#">ROOMS</a></li>
+					<li class="menu-item dropdown"><a href="#">CONFERENCE
+							HALLS</a></li>
+					<li class="menu-item dropdown"><a href="#">DINING</a></li>
+
+					<li class="menu-item"><a href="contact.html">CONTACT US</a></li>
+					<li class="menu-item menu-btn dropdown active"><a href="#"
+						class="username"> <image class="userdp" src="images/u1.png"
+								alt="DP"></image> Hello Bhagya,
+					</a>
+						<ul class="submenu">
+							<li class="menu-item"><a href="#">Profile</a></li>
+							<li class="menu-item"><a href="#">Log Out</a></li>
+						</ul></li>
+
+				</ul>
+			</nav>
 		</div>
 	</header>
-	<!-- ========== Sign up ========== -->
-	<section class="contact "
-		style="background: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('images/abc.jpg'); background-size: cover; background-position: center; background-attachment: fixed;">
+	<section class="contact ">
 		<div class="container full">
 			<div class="row">
 				<div class="bg-img"></div>
 				<div class="col-lg-6 text ">
-					<br />
-					<br />
-					<br />
-					<div class="section-title"
-						style="z-index: 5; Display; letter-spacing: 3px; color: #ffffff; font-weight: 800;">
-						<h4 style="color: white">
-							Hello <br>WELCOME
+					<div class="section-title">
+						<h4>
+							edit your<br>details
 						</h4>
-						<p class="section-subtitle" style="color: white">Sign up and
-							start planning your vacation</p>
-					</div>
-
-
-					<h6>Already have an account?</h6>
-					<div class="sign-up-btn">
-						<a class="link" href="/signin">Sign In</a>
+						<p class="section-subtitle">Click Save to save changes</p>
 					</div>
 
 				</div>
-
 				<div class="col-lg-6 sign-form">
 
-					<form method="post" action="CustomerInsertServlet">
-						<h4 class="form-title" style="color: #f1c40f; text-align: center;">Register
-							Now</h4>
-						<br />
-						<div class="form-group has-validation">
-							<input class="form-control" name="fullname"
-								placeholder="Full Name" type="text">
-							<div class="invalid-feedback">This field cannot be empty.</div>
+					<%
+					DbConnection dbConn = new DbConnection();
+					Connection connection = dbConn.getConnection();
+					PreparedStatement preparedStatement;
+					ResultSet resultSet = null;
+
+					try {
+						String query = "SELECT FullName, Email, Phone, Username FROM customers WHERE Id = ?";
+						preparedStatement = connection.prepareStatement(query);
+						preparedStatement.setInt(1, userId);
+						resultSet = preparedStatement.executeQuery();
+
+						if (resultSet.next()) {
+					%>
+
+					<form id="editProfileForm" action="UpdateCustomerServlet" method="post">
+						<h4 class="form-title">EDIT PERSONAL DETAILS</h4>
+
+						<div class="form-group">
+							<label for="fullName">Full Name:</label> <input type="text"
+								id="fullName" name="fullName" class="form-control"
+								value="<%=resultSet.getString("FullName")%>" required>
 						</div>
 
-						<div class="form-group has-validation">
-							<input class="form-control" name="username" type="text"
-								placeholder="Username">
-							<div class="invalid-feedback">Please enter a valid
-								username.</div>
+						<div class="form-group">
+							<label for="email">Email:</label> <input type="email" id="email"
+								name="email" class="form-control"
+								value="<%=resultSet.getString("Email")%>" required>
 						</div>
-						<div class="form-group has-validation">
-							<input class="form-control" name="email" type="email"
-								placeholder="Email Address">
-							<div class="invalid-feedback">Please enter a valid email.</div>
-						</div>
-						<div class="form-group has-validation">
-							<input class="form-control" name="phone" type="tel"
-								placeholder="Mobile Number">
-							<div class="invalid-feedback">Please enter a valid email.</div>
-						</div>
-						<div class="form-group has-validation">
-							<input class="form-control" name="password" type="password"
-								placeholder="Password">
-							<div class="invalid-feedback">
-								Please enter a valid password. <br>(Password should contain
-								a minimum of 8 characters including lowercase , uppercase
-								letters & numbers )
-							</div>
-						</div>
-						<div class="form-group has-validation">
-							<input class="form-control" name="confirmPassword"
-								type="password" placeholder="Confirm Password">
-							<div class="invalid-feedback" id="password-empty">Please
-								confirm your password.</div>
 
+						<div class="form-group">
+							<label for="contactNo">Contact No:</label> <input type="text"
+								id="contactNo" name="contactNo" class="form-control"
+								value="<%=resultSet.getString("Phone")%>" required>
 						</div>
-						<button class="btn btn-fw btn-light" type="submit"
-							style="background-color: #f1c40f; color: #2b2b2b; width: 100%; padding: 10px;">Sign
-							Up</button>
+
+						<div class="form-group">
+							<label for="username">Username:</label> <input type="text"
+								id="username" name="username" class="form-control"
+								value="<%=resultSet.getString("Username")%>" required>
+						</div>
+
+						<div class="form-group">
+							<label for="password">Password:</label> <input type="password"
+								id="password" name="password" class="form-control" required>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Save
+							Changes</button>
 					</form>
+
+					<%
+					}
+					} catch (Exception e) {
+					out.print(e.getMessage());
+					} finally {
+					if (connection != null)
+					try {
+						connection.close();
+					} catch (SQLException e) {
+						e.printStackTrace();
+					}
+					}
+					%>
 				</div>
+
+
+
+
 			</div>
 		</div>
+
 	</section>
 
 	<!--=========== FOOTER==========-->
@@ -161,11 +212,9 @@
 					<!-- WIDGET -->
 					<div class="col-md-4">
 						<div class="footer-widget">
-							<img src="images/logo ABC.png" class="nav-logo" alt="Hotel"
-								style="width: 150px;">
+							<img src="images/logo.png" class="footer-logo" alt="Hotel Himara">
 							<div class="inner">
-								<h6 style="letter-spacing: 1px;">Indulge in a dining
-									experience that brings your culinary dreams to life.</h6>
+								<p>We serve the best. Enjoy your dream vacation with us</p>
 
 							</div>
 						</div>
@@ -193,13 +242,13 @@
 							<div class="inner">
 								<ul class="contact-details">
 									<li><i class="fa fa-map-marker" aria-hidden="true"></i>
-										Colombo</li>
+										62A,High Level Road, Tangalle</li>
 									<li><i class="fa fa-phone" aria-hidden="true"></i> Phone:
-										+94 770 000 000</li>
-									<li><i class="fa fa-fax"></i> Fax: +94 770 000 000</li>
-									<li><i class="fa fa-globe"></i> Web: www.abcresturent.com</li>
+										+94 775 123 456</li>
+									<li><i class="fa fa-fax"></i> Fax: +94 775 123 456</li>
+									<li><i class="fa fa-globe"></i> Web: www.heritance.com</li>
 									<li><i class="fa fa-envelope"></i> Email: <a
-										href="mailto:info@site.com">abcresturent@gmail.com</a></li>
+										href="mailto:info@site.com">contact@heritance.com</a></li>
 								</ul>
 							</div>
 						</div>
@@ -209,15 +258,9 @@
 		</div>
 	</footer>
 	<!-- ========== JAVASCRIPT ========== -->
-	<%--<script src="js/jquery.min.js"></script>--%>
-
-	<!-- ========== Page JS ========== -->
-	<script>
-		
-	</script>
-
-
-	<%--<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>--%>
+	<script src="js/page/loadProfile.js"></script>
+	<script src="js/page/editProfile.js"></script>
+	<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="js/bootstrap-select.min.js"></script>
 	<script src="js/jquery.mmenu.js"></script>
@@ -237,8 +280,10 @@
 	<script src="js/smoothscroll.min.js"></script>
 	<script src="js/instafeed.min.js"></script>
 	<script src="js/main.js"></script>
-	<script src="js/validation/validation.js"></script>
+	<script src="js/validation/validationUser.js"></script>
 
+
+	<!-- ========== REVOLUTION SLIDER ========== -->
 
 </body>
 </html>

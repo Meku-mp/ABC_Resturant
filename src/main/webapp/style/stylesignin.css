@@ -28,7 +28,7 @@ header.horizontal-header.transparent-header .main-menu .menu .menu-item a
 
 header.horizontal-header .main-menu .menu .menu-item a, header.horizontal-header.scroll-header .main-menu .menu .menu-item a
 {
-    color: black;
+    color: rgb(255, 0, 0);
 }
 /* header.horizontal-header .main-menu .menu .menu-item a, header.horizontal-header.scroll-header .main-menu .menu .menu-btn .btn
 {
