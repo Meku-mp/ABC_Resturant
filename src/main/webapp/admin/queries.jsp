@@ -11,53 +11,108 @@
 <meta charset="UTF-8">
 <title>Queries List</title>
 <style>
+/* Table Styles */
+/* Table Styles */
+body {
+    font-family: Arial, sans-serif;
+    background: #f2f2f2;
+    margin: 100;
+    padding: 100;
+}
 table {
-	width: 100%;
-	border-collapse: collapse;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
 }
 
 table, th, td {
-	border: 1px solid black;
+    border: 1px solid #ddd;
 }
 
 th, td {
-	padding: 8px;
-	text-align: left;
+    padding: 16px;
+    text-align: left;
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
 }
 
 th {
-	background-color: #f2f2f2;
+    background-color: #6e45e2; /* Single solid color */
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid #4a00e0; /* Accent border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
-form {
-	margin-top: 20px;
+
+tr:nth-child(odd) {
+    background: linear-gradient(135deg, #f3f4f6, #e5e5e5); /* Alternating background gradient */
 }
 
-form div {
-	margin-bottom: 10px;
+tr:nth-child(even) {
+    background: linear-gradient(135deg, #ffffff, #f7f7f7); /* Alternating background gradient */
 }
 
-label {
-	display: inline-block;
-	width: 150px;
+tr:hover {
+    background: linear-gradient(135deg, #d1c4e9, #b39ddb); /* Hover gradient */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
 }
 
-input[type="text"], input[type="email"], textarea {
-	width: 200px;
-	padding: 5px;
+/* Modal Styles */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay with slight transparency */
+    padding: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-input[type="submit"] {
-	padding: 10px 20px;
-	background-color: #4CAF50;
-	color: white;
-	border: none;
-	cursor: pointer;
+.modal-content {
+    background: linear-gradient(135deg, #ffffff, #e0f7fa); /* Gradient background */
+    margin: auto;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    border-radius: 12px;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
 }
 
-input[type="submit"]:hover {
-	background-color: #45a049;
+.modal-content.show {
+    transform: scale(1);
 }
+
+/* Close Button */
+.close {
+    color: #ff4081; /* Vibrant pink */
+    float: right;
+    font-size: 36px;
+    font-weight: bold;
+    transition: color 0.4s, transform 0.4s;
+    cursor: pointer;
+}
+
+.close:hover, .close:focus {
+    color: #d500f9; /* Purple color on hover */
+    transform: rotate(15deg); /* Slight rotation on hover */
+}
+
+/* Animation for Modal */
+.modal.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
 </style>
 </head>
 <body>

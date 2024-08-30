@@ -15,6 +15,8 @@
     href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css"
     rel="stylesheet">
 <style>
+/* Table Styles */
+/* Table Styles */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -22,54 +24,93 @@ table {
 }
 
 table, th, td {
-    border: 1px solid black;
+    border: 1px solid #ddd;
 }
 
 th, td {
-    padding: 8px;
+    padding: 16px;
     text-align: left;
+    transition: background-color 0.4s, transform 0.4s, box-shadow 0.4s;
 }
 
 th {
-    background-color: #f2f2f2;
+    background-color: #6e45e2; /* Single solid color */
+    color: #fff;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid #4a00e0; /* Accent border */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
 }
 
+
+tr:nth-child(odd) {
+    background: linear-gradient(135deg, #f3f4f6, #e5e5e5); /* Alternating background gradient */
+}
+
+tr:nth-child(even) {
+    background: linear-gradient(135deg, #ffffff, #f7f7f7); /* Alternating background gradient */
+}
+
+tr:hover {
+    background: linear-gradient(135deg, #d1c4e9, #b39ddb); /* Hover gradient */
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+}
+
+/* Modal Styles */
 .modal {
     display: none;
     position: fixed;
-    z-index: 50;
+    z-index: 1000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
     overflow: auto;
-    background-color: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.7); /* Darker overlay with slight transparency */
     padding: 20px;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
 .modal-content {
-    background-color: #fff;
+    background: linear-gradient(135deg, #ffffff, #e0f7fa); /* Gradient background */
     margin: auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 100%;
-    max-width: 500px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    border-radius: 8px;
+    padding: 30px;
+    border: 1px solid #ddd;
+    width: 90%;
+    max-width: 600px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); /* Enhanced shadow */
+    border-radius: 12px;
+    transform: scale(0.9);
+    transition: transform 0.4s ease;
 }
 
+.modal-content.show {
+    transform: scale(1);
+}
+
+/* Close Button */
 .close {
-    color: #aaa;
+    color: #ff4081; /* Vibrant pink */
     float: right;
-    font-size: 28px;
+    font-size: 36px;
     font-weight: bold;
+    transition: color 0.4s, transform 0.4s;
+    cursor: pointer;
 }
 
 .close:hover, .close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
+    color: #d500f9; /* Purple color on hover */
+    transform: rotate(15deg); /* Slight rotation on hover */
 }
+
+/* Animation for Modal */
+.modal.show {
+    display: block;
+    opacity: 1;
+    visibility: visible;
+}
+
 </style>
 <script>
     function openCreateModal() {
