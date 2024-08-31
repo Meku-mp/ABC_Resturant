@@ -56,7 +56,7 @@
 			<!-- BRAND -->
 			<div class="brand">
 				<div class="logo">
-					<a href="/"> <img src="images/logo ABC.png" class="nav-logo"
+					<a href="/ABC_Restaurant/"> <img src="images/logo ABC.png" class="nav-logo"
 						alt="Hotel" style="width: 150px;">
 					</a>
 				</div>
@@ -73,7 +73,7 @@
 
 					</li>
 					<li class="menu-item dropdown"><a
-						href="facilities-Details.jsp">FACILITIES</a></li>
+						href="facilities.jsp">FACILITIES</a></li>
 					<li class="menu-item dropdown"><a href="food.jsp">FOODS</a></li>
 
 					<li class="menu-item"><a href="#contact">CONTACT US</a></li>
@@ -167,7 +167,7 @@
 							data-frames='[{"delay":2400,"speed":1500,"frame":"0","from":"y:[100%];z:0;rX:0deg;rY:0;rZ:0;sX:1;sY:1;skX:0;skY:0;opacity:0;","mask":"x:0px;y:[100%];s:inherit;e:inherit;","to":"o:1;","ease":"Power2.easeInOut"},{"delay":"wait","speed":500,"frame":"999","to":"auto:auto;","ease":"Power3.easeInOut"}]'
 							style="z-index: 11;">
 
-							<a id="b" class="booka" href="/signin"> ORDER NOW</a>
+							<a id="b" class="booka" href="reservation.jsp"> ORDER NOW</a>
 
 
 						</div>
@@ -219,7 +219,7 @@
 				<div class="col-md-4">
 					<div class="room-grid-item">
 						<figure class="gradient-overlay-hover link-icon">
-							<a href="room.html"> <img src="images/abc.jpg"
+							<a href="room.html"> <img src="images/dining.jpg"
 								class="img-fluid" alt="Image">
 							</a>
 							<div class="room-services">
@@ -249,7 +249,7 @@
 				<div class="col-md-4">
 					<div class="room-grid-item">
 						<figure class="gradient-overlay-hover link-icon">
-							<a href="room.html"> <img src="images/abc.jpg"
+							<a href="room.html"> <img src="images/bar.jpg"
 								class="img-fluid" alt="Image">
 							</a>
 							<div class="room-services">
@@ -279,7 +279,7 @@
 				<div class="col-md-4">
 					<div class="room-grid-item">
 						<figure class="gradient-overlay-hover link-icon">
-							<a href="room.html"> <img src="images/abc.jpg"
+							<a href="room.html"> <img src="images/parking.jpeg"
 								class="img-fluid" alt="Image">
 							</a>
 							<div class="room-services">
@@ -397,6 +397,45 @@
 						</div>
 					</div>
 				</div>
+			</div>
+		</div>
+	</section>
+	
+	<!-- ========== SERVICES ========== -->
+	<section class="info services-v2 ">
+		<div class="container">
+			<div class="section-title">
+				<h4>SPECIAL OFFERS</h4>
+				<p class="section-subtitle">Order Now</p>
+			</div>
+			<div class="row">
+				<div class="col-lg-12 col-md-12">
+					<div class="services-v2-inner">
+						<!-- MAIN IMAGE -->
+						<div data-slider-id="services-v2"
+							class="main-image services-v2-owl owl-carousel">
+							<figure class="gradient-overlay">
+								<img src="images/disc.png" class="img-fluid" alt="Image">
+								<figcaption>
+									<h4>Offer</h4>
+								</figcaption>
+							</figure>
+							<figure class="gradient-overlay">
+								<img src="images/disc.png" class="img-fluid" alt="Image">
+								<figcaption>
+									<h4>Offer</h4>
+								</figcaption>
+							</figure>
+							<figure class="gradient-overlay">
+								<img src="images/disc.png" class="img-fluid" alt="Image">
+								<figcaption>
+									<h4>Offer</h4>
+								</figcaption>
+							</figure>
+						</div>
+					</div>
+				</div>
+				
 			</div>
 		</div>
 	</section>
@@ -811,5 +850,34 @@
 		src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
 	<script
 		src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+		<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Check if the user has already accepted cookies
+    if (!localStorage.getItem('cookiesAccepted')) {
+        Swal.fire({
+            title: 'We use cookies',
+            text: 'We use cookies to enhance your experience. By continuing to visit this site you agree to our use of cookies.',
+            icon: 'info',
+            showCancelButton: true,
+            confirmButtonText: 'Accept',
+            cancelButtonText: 'Decline',
+            backdrop: 'rgba(0,0,0,0.4)', // Adjust the backdrop if necessary
+            allowOutsideClick: false, // Prevent closing the modal by clicking outside
+            allowEscapeKey: false // Prevent closing the modal with the Esc key
+        }).then((result) => {
+            if (result.isConfirmed) {
+                // Set a flag in local storage to remember the user's choice
+                localStorage.setItem('cookiesAccepted', 'true');
+                Swal.fire('Cookies Accepted!', 'Thank you for accepting cookies.', 'success');
+            } else if (result.dismiss === Swal.DismissReason.cancel) {
+                // Optional: Handle the decline case if needed
+                console.log('Cookies were declined');
+            }
+        });
+    }
+});
+</script>
+
 </body>
 </html>

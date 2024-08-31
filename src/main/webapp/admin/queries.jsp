@@ -114,8 +114,82 @@ tr:hover {
 }
 
 </style>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+<script
+	src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.25/jspdf.plugin.autotable.min.js"></script>
+<script>
+function downloadPDF() {
+    const { jsPDF } = window.jspdf;
+    const doc = new jsPDF('p', 'pt', 'a4');
+
+    // Add background image (optional)
+    doc.addImage('https://example.com/background-image.jpg', 'JPEG', 0, 0, 595.28, 841.89);
+
+    // Set font and text color
+    doc.setFont('Helvetica', 'bold');
+    doc.setTextColor(40, 56, 120);
+    
+    // Add the title with creative styling
+    doc.setFontSize(24);
+    doc.text("Queries Report of the Month", 30, 50);
+    
+    // Add a subheading with lighter color
+    doc.setFontSize(14);
+    doc.setTextColor(100);
+    doc.text("A detailed overview of all queries processed", 30, 70);
+
+    // Draw a line under the title
+    doc.setDrawColor(40, 56, 120);
+    doc.setLineWidth(2);
+    doc.line(30, 80, 565, 80);
+
+    // Prepare the table content
+    const table = document.querySelector('table');
+    
+    // Apply autoTable with customized styles
+    doc.autoTable({
+        html: table,
+        startY: 100,
+        theme: 'grid',
+        styles: {
+            font: 'helvetica',
+            fontSize: 12,
+            textColor: [40, 56, 120],
+            fillColor: [255, 255, 255],
+            cellPadding: 8,
+        },
+        headStyles: {
+            fillColor: [40, 56, 120],
+            textColor: [255, 255, 255],
+            fontSize: 14,
+        },
+        alternateRowStyles: {
+            fillColor: [240, 240, 240],
+        },
+        margin: { top: 100, bottom: 50 },
+    });
+
+    // Add a footer
+    const pageCount = doc.internal.getNumberOfPages();
+    doc.setFontSize(10);
+    doc.setTextColor(150);
+    for (let i = 1; i <= pageCount; i++) {
+        doc.setPage(i);
+        doc.text(`Page ${i} of ${pageCount}`, doc.internal.pageSize.width - 80, doc.internal.pageSize.height - 30, {
+            align: 'right'
+        });
+    }
+
+    // Save the PDF
+    doc.save("queries_list.pdf");
+}
+</script>
+
 </head>
 <body>
+    <%@ include file="../includes/adminHeader.jsp"%>
+<br/><br/><br/><br/><br/><br/><br/>
 	<%
 	int adminId = 0;
 
@@ -175,6 +249,28 @@ tr:hover {
 		}
 		%>
 	</table>
+	
+	<br>
+	<!-- Download PDF Button -->
+<input 
+    type="button" 
+    value="Download PDF" 
+    onclick="downloadPDF()" 
+    style="
+        background-color: #4CAF50; 
+        color: white; 
+        font-size: 16px; 
+        padding: 12px 24px; 
+        border: none; 
+        border-radius: 8px; 
+        cursor: pointer; 
+        transition: background-color 0.3s, transform 0.3s; 
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    " 
+    onmouseover="this.style.backgroundColor='#45a049'; this.style.transform='scale(1.05)';" 
+    onmouseout="this.style.backgroundColor='#4CAF50'; this.style.transform='scale(1)';"
+/>
+	
 
 	<%
 	} catch (Exception e) {

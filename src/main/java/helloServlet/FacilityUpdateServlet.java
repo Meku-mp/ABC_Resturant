@@ -70,7 +70,7 @@ public class FacilityUpdateServlet extends HttpServlet {
 		String name = request.getParameter("name");
 		String description = request.getParameter("description");
 		int restaurantId = Integer.parseInt(request.getParameter("restaurantId"));
-		String imagePath = request.getParameter("image");
+		String imagePath = request.getParameter("imagePath");
 
 		// Create a Facility object
 		Facility facility = new Facility();

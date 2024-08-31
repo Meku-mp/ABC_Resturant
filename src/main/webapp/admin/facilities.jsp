@@ -8,6 +8,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap-select.min.css">
+
+<link rel="stylesheet" href="../style/adminhome.css">
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Facilities List</title>
@@ -144,7 +148,8 @@ tr:hover {
 </script>
 </head>
 <body class="bg-gray-100">
-
+    <%@ include file="../includes/adminHeader.jsp"%>
+<br/><br/><br/><br/><br/><br/><br/>
 	<!-- Toast Notification -->
 	<div id="toastCreated"
 		class="fixed bottom-4 right-4 bg-blue-500 text-white px-4 py-2 rounded shadow-lg"

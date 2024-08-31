@@ -63,7 +63,7 @@
 			<!-- BRAND -->
 			<div class="brand">
 				<div class="logo">
-					<a href="/"> <img src="images/logo ABC.png" class="nav-logo"
+					<a href="/ABC_Restaurant/"> <img src="images/logo ABC.png" class="nav-logo"
 						alt="Hotel Himara">
 					</a>
 				</div>

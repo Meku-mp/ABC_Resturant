@@ -6,6 +6,7 @@
 	pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
+
 <head>
 <meta charset="UTF-8">
 <title>Reservations List</title>
@@ -114,6 +115,8 @@ tr:hover {
 </style>
 </head>
 <body>
+    <%@ include file="../includes/adminHeader.jsp"%>
+<br/><br/><br/><br/><br/><br/><br/>
 	<%
 	int adminId = 0;
 

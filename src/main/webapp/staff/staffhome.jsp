@@ -7,45 +7,15 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <meta content="width=device-width, initial-scale=1, maximum-scale=1"
 	name="viewport">
-<!-- ========== SEO ========== -->
-<title>Hotel Heritance- ADMIN</title>
-<meta content="" name="description">
-<meta content="" name="keywords">
-<meta content="" name="author">
-<!-- ========== FAVICON ========== -->
-<link rel="apple-touch-icon-precomposed" href="images/favicon-apple.png" />
-<link rel="icon" href="images/favicon.png">
-<!-- ========== STYLESHEETS ========== -->
-<link rel="stylesheet" href="../css/bootstrap.min.css">
-<link rel="stylesheet" href="../css/bootstrap-select.min.css">
-<link rel="stylesheet" href="../css/jquery.mmenu.css">
-<link rel="stylesheet" href="../revolution/css/layers.css">
-<link rel="stylesheet" href="../revolution/css/settings.css">
-<link rel="stylesheet" href="../revolution/css/navigation.css">
-<link rel="stylesheet" href="../css/animate.min.css">
-<link rel="stylesheet" href="../css/owl.carousel.min.css">
-<link rel="stylesheet" href="../css/daterangepicker.css">
-<link rel="stylesheet" href="../css/magnific-popup.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/responsive.css">
-<link rel="stylesheet" href="../style/style.css">
-<link rel="stylesheet" href="../style/stylesignin.css">
-<link rel="stylesheet" href="../style/userdashboard.css">
-<link rel="stylesheet" href="../style/rooms.css">
-<link rel="stylesheet" href="../style/guestdetails.css">
-<link rel="stylesheet" href="../style/adminhome.css">
-
-<!-- ========== ICON FONTS ========== -->
-<link href="fonts/font-awesome.min.css" rel="stylesheet">
-<link href="fonts/flaticon.css" rel="stylesheet">
-<!-- ========== GOOGLE FONTS ========== -->
+<title>ABC Resturent- ADMIN</title>
 <link
 	href="https://fonts.googleapis.com/css?family=Oswald:400,500,600,700%7CRoboto:100,300,400,400i,500,700"
 	rel="stylesheet">
 </head>
-<body class="dark">
+<body style="font-family: 'Roboto', sans-serif; background-color: #f4f4f4; margin: 0; padding: 0;">
 
-	<%
+    
+<%
 	int staffId = 0;
 
 	Cookie cookies[] = request.getCookies();
@@ -59,151 +29,72 @@
 	if (staffId == 0) {
 		response.sendRedirect("../adminlogin.jsp");
 	}
-	%>
-	<!-- ========== MOBILE MENU ========== -->
-	<nav id="mobile-menu"></nav>
-	<!--Navbar-->
+%>
 
-	<header class="horizontal-header sticky-header transparent-header "
-		data-menutoggle="991">
-
-		<!--Header-->
-		<div class="container">
-			<!-- BRAND -->
-			<div class="brand">
-				<div class="logo">
-					<a href="/"> <img src="images/logo ABC.png" class="nav-logo"
-						alt="Hotel" style="width: 150px;">
-					</a>
-				</div>
+<header style="background-color: #333; padding: 15px 0; box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);">
+	<div class="container" style="width: 90%; margin: 0 auto;">
+		<div style="display: flex; align-items: center; justify-content: space-between;">
+			<div class="logo">
+				<a href="/" style="text-decoration: none;">
+					<img src="../images/logo ABC.png" alt="" style="width: 150px;">
+				</a>
 			</div>
-			<!-- MOBILE MENU BUTTON -->
-			<div id="toggle-menu-button" class="toggle-menu-button">
-				<span class="line"></span> <span class="line"></span> <span
-					class="line"></span>
-			</div>
-			<!-- MAIN MENU -->
-			<nav id="main-menu" class="main-menu">
-				<ul class="menu">
-					<li class="menu-item dropdown"><a href="staffhome.jsp">HOME</a></li>
-					<li class="menu-item dropdown"><a href="staff.jsp">STAFF</a></li>
-					<li class="menu-item"><a href="restaurants.jsp">RESATURANTS</a></li>
-					<li class="menu-item dropdown"><a href="reservations.jsp">RESERVATIONS</a></li>
-					<li class="menu-item dropdown"><a href="payments.jsp">PAYMENTS</a></li>
-					<li class="menu-item"><a href="foods.jsp">FOODS</a></li>
-					<li class="menu-item"><a href="facilities.jsp">FACILITIES</a></li>
-					<li class="menu-item">
-						<form action="../LogoutServlet" method="post">
-							<button
-								style="margin-top: 23px; padding: 5px; border-radius: 5%;">LOGOUT</button>
+			<nav style="flex-grow: 1; text-align: right;">
+				<ul style="list-style: none; padding: 0; margin: 0;">
+					<li style="display: inline-block; margin-left: 20px;"><a href="staffhome.jsp" style="color: white; text-decoration: none; font-weight: 500;">HOME</a></li>
+					<li style="display: inline-block; margin-left: 20px;"><a href="staff.jsp" style="color: white; text-decoration: none; font-weight: 500;">STAFF</a></li>
+<!-- 					<li style="display: inline-block; margin-left: 20px;"><a href="restaurants.jsp" style="color: white; text-decoration: none; font-weight: 500;">RESTAURANTS</a></li>
+ -->					<li style="display: inline-block; margin-left: 20px;"><a href="reservations.jsp" style="color: white; text-decoration: none; font-weight: 500;">RESERVATIONS</a></li>
+<!-- 					<li style="display: inline-block; margin-left: 20px;"><a href="payments.jsp" style="color: white; text-decoration: none; font-weight: 500;">PAYMENTS</a></li>
+ -->					<li style="display: inline-block; margin-left: 20px;"><a href="foods.jsp" style="color: white; text-decoration: none; font-weight: 500;">FOODS</a></li>
+					<li style="display: inline-block; margin-left: 20px;"><a href="facilities.jsp" style="color: white; text-decoration: none; font-weight: 500;">FACILITIES</a></li>
+					<li style="display: inline-block; margin-left: 20px;">
+						<form action="../LogoutServlet" method="post" style="display: inline;">
+							<button type="submit" style="color: white; background-color: #e74c3c; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer;">LOGOUT</button>
 						</form>
 					</li>
-
 				</ul>
 			</nav>
 		</div>
-	</header>
+	</div>
+</header>
 
-	<section class="box">
-		<div class="container-fluid">
-			<div class="row full-box">
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short">
-					<a href="#">
-						<div class="inside">
-							<h3>STAFF</h3>
-						</div>
-					</a>
-				</div>
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-					<a href="/registeredUsers">
-						<div class="inside">
-							<h3>RESTAURANTS</h3>
-						</div>
-					</a>
-				</div>
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-					<a href="/reservationsList">
-						<div class="inside">
-							<h3>PAYMENTS</h3>
-						</div>
-					</a>
-				</div>
+<section style="padding: 50px 0;">
+	<div class="container-fluid" style="width: 90%; margin: 0 auto;">
+		<div class="row full-box" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+
+			<div style="background-color: #2ecc71; color: white; text-align: center; margin: 20px 0; border-radius: 10px; width: 30%; min-width: 250px; padding: 30px 0;">
+				<a href="staff.jsp" style="text-decoration: none; color: inherit;">
+					<h3>STAFF</h3>
+				</a>
 			</div>
-			<div class="row full-box">
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short">
-					<a href="#">
-						<div class="inside">
-							<h3>STAFF</h3>
-						</div>
-					</a>
-				</div>
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-					<a href="/registeredUsers">
-						<div class="inside">
-							<h3>RESTAURANTS</h3>
-						</div>
-					</a>
-				</div>
-				<div
-					class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-					<a href="/reservationsList">
-						<div class="inside">
-							<h3>PAYMENTS</h3>
-						</div>
-					</a>
-				</div>
+			
+			<div style="background-color: #3498db; color: white; text-align: center; margin: 20px 0; border-radius: 10px; width: 30%; min-width: 250px; padding: 30px 0;">
+				<a href="reservations.jsp" style="text-decoration: none; color: inherit;">
+					<h3>RESERVATION</h3>
+				</a>
+			</div>
+			
+			<div style="background-color: #e67e22; color: white; text-align: center; margin: 20px 0; border-radius: 10px; width: 30%; min-width: 250px; padding: 30px 0;">
+				<a href="foods.jsp" style="text-decoration: none; color: inherit;">
+					<h3>FOOD</h3>
+				</a>
 			</div>
 		</div>
-	</section>
 
+		<div class="row full-box" style="display: flex; justify-content: space-around; flex-wrap: wrap;">
+			
+			<div style="background-color: #9b59b6; color: white; text-align: center; margin: 20px 0; border-radius: 10px; width: 30%; min-width: 250px; padding: 30px 0;">
+				<a href="facilities.jsp" style="text-decoration: none; color: inherit;">
+					<h3>FACILITIES</h3>
+				</a>
+			</div>
+			
+			
 
-	<!-- ========== JAVASCRIPT ========== -->
-	<script src="js/jquery.min.js"></script>
-	<script src="http://maps.google.com/maps/api/js?key=YOUR_API_KEY"></script>
-	<script src="js/bootstrap.min.js"></script>
-	<script src="js/bootstrap-select.min.js"></script>
-	<script src="js/jquery.mmenu.js"></script>
-	<script src="js/jquery.inview.min.js"></script>
-	<script src="js/jquery.countdown.min.js"></script>
-	<script src="js/jquery.magnific-popup.min.js"></script>
-	<script src="js/owl.carousel.min.js"></script>
-	<script src="js/owl.carousel.thumbs.min.js"></script>
-	<script src="js/isotope.pkgd.min.js"></script>
-	<script src="js/imagesloaded.pkgd.min.js"></script>
-	<script src="js/masonry.pkgd.min.js"></script>
-	<script src="js/wow.min.js"></script>
-	<script src="js/countup.min.js"></script>
-	<script src="js/moment.min.js"></script>
-	<script src="js/daterangepicker.js"></script>
-	<script src="js/parallax.min.js"></script>
-	<script src="js/smoothscroll.min.js"></script>
-	<script src="js/instafeed.min.js"></script>
-	<script src="js/main.js"></script>
-	<!-- ========== REVOLUTION SLIDER ========== -->
-	<script src="revolution/js/jquery.themepunch.tools.min.js"></script>
-	<script src="revolution/js/jquery.themepunch.revolution.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.actions.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.migration.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-	<script
-		src="revolution/js/extensions/revolution.extension.video.min.js"></script>
+		</div>
+	</div>
+</section>
+
 </body>
 </html>

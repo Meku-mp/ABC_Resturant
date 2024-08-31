@@ -4,9 +4,13 @@ import java.io.IOException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
+import dao.FacilitiesDao;
+import model.Facility;
 
 
 /**
@@ -45,6 +49,46 @@ public class HelloServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		doGet(request, response);
+		
+		var name = request.getParameter("name");
+		var description = request.getParameter("description");
+		var restaurantId = request.getParameter("restaurantId");
+		var imagePath = request.getParameter("imagePath");
+
+		Cookie cookies[] = request.getCookies();
+		int adminId = 0;
+		int staffId = 0;
+
+		for (Cookie c : cookies) {
+			if (c.getName().equals("adminId")) {
+				adminId = Integer.parseInt(c.getValue());
+			}
+
+			if (c.getName().equals("staffId")) {
+				staffId = Integer.parseInt(c.getValue());
+			}
+		}
+
+		var facility = new Facility();
+
+		facility.setName(name);
+		facility.setDescription(description);
+		facility.setRestaurantId(Integer.parseInt(restaurantId));
+		facility.setImagePath(imagePath);
+		facility.setCreateBy(adminId > 0 ? adminId : 1);
+
+//		var FacilitiesDaoSingleton = FacilitiesDao.getInstance();
+//		var insertedFacility = ((FacilitiesDao) facilitiesDao).createFacility(facility);
+//
+//		if (insertedFacility != null) {
+//			if (adminId > 0) {
+//				response.sendRedirect("admin/facilities.jsp?created=true");
+//			}
+//
+//			if (staffId > 0) {
+//				response.sendRedirect("staff/facilities.jsp?created=true");
+//			}
+//		}
 	}
 
 }

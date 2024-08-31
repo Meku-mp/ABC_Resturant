@@ -36,6 +36,16 @@ public class LogoutServlet extends HttpServlet {
 		            c.setMaxAge(0);
 		            response.addCookie(c);
 		        }
+		        if (c.getName().equals("userId")) {
+		            // Set the max age to 0 to delete the cookie
+		            c.setMaxAge(0);
+		            response.addCookie(c);
+		        }
+		        if (c.getName().equals("staffId")) {
+		            // Set the max age to 0 to delete the cookie
+		            c.setMaxAge(0);
+		            response.addCookie(c);
+		        }
 		    }
 		}
 				// Redirect to home page

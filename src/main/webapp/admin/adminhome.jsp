@@ -17,21 +17,7 @@
 <link rel="stylesheet" href="../css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/bootstrap-select.min.css">
 <link rel="stylesheet" href="../css/jquery.mmenu.css">
-<link rel="stylesheet" href="../revolution/css/layers.css">
-<link rel="stylesheet" href="../revolution/css/settings.css">
-<link rel="stylesheet" href="../revolution/css/navigation.css">
-<link rel="stylesheet" href="../css/animate.min.css">
-<link rel="stylesheet" href="../css/owl.carousel.min.css">
-<link rel="stylesheet" href="../css/daterangepicker.css">
-<link rel="stylesheet" href="../css/magnific-popup.css">
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/responsive.css">
-<link rel="stylesheet" href="../style/style.css">
-<link rel="stylesheet" href="../style/stylesignin.css">
-<link rel="stylesheet" href="../style/userdashboard.css">
-<link rel="stylesheet" href="../style/rooms.css">
-<link rel="stylesheet" href="../style/guestdetails.css">
-<link rel="stylesheet" href="../style/adminhome.css">
+
 <!-- ========== ICON FONTS ========== -->
 <link href="../fonts/font-awesome.min.css" rel="stylesheet">
 <link href="../fonts/flaticon.css" rel="stylesheet">
@@ -55,56 +41,57 @@
 
     <%@ include file="../includes/adminHeader.jsp"%>
 
-    <section class="box">
-        <div class="container-fluid">
-            <div class="row full-box">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short">
-                    <a href="staff.jsp">
-                        <div class="inside">
-                            <h3>STAFF</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-                    <a href="restaurants.jsp">
-                        <div class="inside">
-                            <h3>RESTAURANTS</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-                    <a href="queries.jsp">
-                        <div class="inside">
-                            <h3>QUERIES</h3>
-                        </div>
-                    </a>
-                </div>
+<section class="box" style=" margin-top: 200px; padding: 30px 0; display: flex; justify-content: center;">
+    <div class="container-fluid" style="max-width: 1200px; margin: auto; width: 100%;">
+        <div class="row full-box" style="display: flex; justify-content: space-between;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="staff.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">STAFF</h3>
+                    </div>
+                </a>
             </div>
-            <div class="row full-box">
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short">
-                    <a href="foods.jsp">
-                        <div class="inside">
-                            <h3>FOODS</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-                    <a href="facilities.jsp">
-                        <div class="inside">
-                            <h3>FACILITIES</h3>
-                        </div>
-                    </a>
-                </div>
-                <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec">
-                    <a href="reservations.jsp">
-                        <div class="inside">
-                            <h3>RESERVATIONS</h3>
-                        </div>
-                    </a>
-                </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="restaurants.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">RESTAURANTS</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="queries.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">QUERIES</h3>
+                    </div>
+                </a>
             </div>
         </div>
-    </section>
+        <div class="row full-box" style="display: flex; justify-content: space-between;">
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="foods.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">FOODS</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="facilities.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">FACILITIES</h3>
+                    </div>
+                </a>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 container-box short sec" style="margin-bottom: 40px;"> <!-- Updated margin-bottom -->
+                <a href="reservations.jsp" style="text-decoration: none; color: inherit;">
+                    <div class="inside" style="background: #ffffff; padding: 40px 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); text-align: center; transition: transform 0.3s ease, box-shadow 0.3s ease;">
+                        <h3 style="font-family: 'Oswald', sans-serif; font-size: 24px; letter-spacing: 2px; color: #333;">RESERVATIONS</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
 
 </body>
 </html>

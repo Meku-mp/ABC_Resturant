@@ -74,14 +74,33 @@ public class CreateFacilityServlet extends HttpServlet {
 
 		if (insertedFacility != null) {
 			if (adminId > 0) {
-				response.sendRedirect("admin/facilities.jsp");
+				response.sendRedirect("admin/facilities.jsp?created=true");
 			}
 
 			if (staffId > 0) {
-				response.sendRedirect("staff/facilities.jsp");
+				response.sendRedirect("staff/facilities.jsp?created=true");
 			}
 		}
 
 	}
 
 }
+
+
+
+
+
+
+
+
+/*
+ * protected void doPost(HttpServletRequest request, HttpServletResponse
+ * response) throws ServletException, IOException { // Your existing code for
+ * handling the request
+ * 
+ * // Use Singleton instance of FacilitiesDao var facilitiesDao =
+ * FacilitiesDao.getInstance(); var insertedFacility =
+ * facilitiesDao.createFacility(facility);
+ * 
+ * // Continue with your existing response handling code }
+ */

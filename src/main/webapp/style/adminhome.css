@@ -1,127 +1,135 @@
-
-.bg-img
-{
-    top: 120px;
-    
-}
-.box h2
-{
-    margin-top: 10px;
+/* General Styles */
+body.dark {
+    background-color: #121212; /* Dark background for the body */
+    color: #f5f5f5; /* Light text color for contrast */
+    font-family: 'Roboto', sans-serif; /* Consistent font */
 }
 
-.box .after
-{
-    letter-spacing: 0;
+/* Box Styles */
+.box {
+    padding: 30px;
+    background: linear-gradient(145deg, #1f1f1f, #333); /* Dark gradient background */
+    border-radius: 20px;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.7);
+}
+
+/* Heading Styles */
+.box h2 {
+    margin-top: 15px;
+    color: #f5f5f5;
+    font-size: 28px; /* Larger heading size */
+    font-weight: 700; /* Bold heading */
+    text-align: center; /* Centered heading */
+}
+
+/* Box After Element */
+.box .after {
+    letter-spacing: 1px;
     color: #e3e0a3;
     text-align: left;
     margin-left: 45px;
+    font-size: 16px;
+    line-height: 1.5;
 }
+
+/* Responsive Adjustment */
 @media only screen and (max-width: 600px) {
     .box .after {
         text-align: center;
         margin-left: 0;
     }
-  }
-
-.container-box
-{
-  background-color: transparent;
-  color: black;
-  height: 250px;
-  margin-bottom: 20px;
-
-}
-@media only screen and (max-width: 600px) {
-    .container-box {
-        margin-left: -20px;
-    }
-  }
-.long
-{
-    height: 520px;
 }
 
+/* Container Box Styles */
+.container-box {
+    background: #282828; /* Dark background for each container */
+    color: #f5f5f5;
+    height: 250px;
+    margin-bottom: 20px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    position: relative; /* For better control of hover effects */
+}
 
+/* Hover Effect for Container Box */
+.container-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.6);
+}
 
-.full-box
-{
-    width: 100%;
-    height: fit-content; 
+/* Full Box Styles */
+.full-box {
+    width: calc(100% - 40px);
+    height: auto;
     margin: 20px;
     margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
-.inside
-{
-    
-    border-radius: 10px;
-    width: 400px;
-    height: 230px;
-    background-color: rgb(255, 255, 255);
-    color: black;
-    padding-top: 70px;
+
+/* Inside Box Styles */
+.inside {
+    border-radius: 20px;
+    width: 100%;
+    height: 100%;
+    background-color: #444;
+    color: #f5f5f5;
+    padding: 30px;
     border: 1px solid #e3e0a3;
-    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
-.inside:hover
-{
-    animation: myAnim 1s ease 0s 1 normal forwards;
+
+/* Hover Animation */
+.inside:hover {
+    animation: myAnim 0.5s ease-in-out;
 }
+
+/* Keyframes for Hover Animation */
 @keyframes myAnim {
     0% {
-      box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-      transform: scale(1) translateY(0);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+        transform: scale(1) translateY(0);
     }
-  
     100% {
-      box-shadow: 0 12px 20px -12px rgba(104, 104, 104, 0.35);
-      transform: scale(1.007) translateY(-12px);
+        box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+        transform: scale(1.05) translateY(-10px);
     }
-  }
-.long .inside
-{
-    height: 500px;
 }
 
-.long .inside h3
-{
-    font-weight: 300;
+/* Long Inside Box Styles */
+.long .inside {
+    height: 100%;
+}
+
+/* Heading Styles in Long Inside Box */
+.long .inside h3 {
+    font-weight: 600;
     text-align: center;
     padding-top: 20px;
-    margin-bottom: -10px;
-    font-size: 20px;
-    color: black;
-    margin-left: 0;
+    margin-bottom: 10px;
+    font-size: 24px;
+    color: #e3e0a3;
 }
-.long .inside h4
-{
+
+.long .inside h4 {
     font-weight: 300;
     text-align: center;
-    letter-spacing: 0;
-    color:#e3e0a3 ;
-    
+    letter-spacing: 1px;
+    color: #e3e0a3;
+    font-size: 18px;
 }
+
+/* Responsive Adjustment for Heading */
 @media only screen and (max-width: 600px) {
     .long .inside h6 {
-        padding-left: 20px;
+        font-size: 16px;
+        margin-bottom: 10px;
     }
-  }
-
-.long .inside h6
-{
-    font-weight: 300;
-    text-align: center;
-    padding-top: 20px;
-    padding-right: 50px;
-
-}
-.inside h3
-{
-    font-weight: 300;
-    text-align: center;
-    padding-top: 10px;
-    margin-bottom: -10px;
-    line-height: 1.5;
-    font-size: 20px;
-    color: black;
-    margin-left: 0;
 }

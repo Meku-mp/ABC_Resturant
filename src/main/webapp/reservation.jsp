@@ -222,100 +222,72 @@
 					</div>
 					<div class="col-lg-6 sign-form">
 						<!-- Dine In Form -->
-						<form method="post" action="CreateReservationServlet">
-							<input type="text" name="type" value="dineIn" hidden="true" />
-							<h4 class="form-title"
-								style="color: #f1c40f; text-align: center;">Place Your
-								Order</h4>
-							<br />
+					<form method="post" action="CreateReservationServlet" style="max-width: 800px; margin: auto; padding: 20px; border-radius: 10px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); background-color: #ffffff;">
+    <input type="text" name="type" value="dineIn" hidden="true" />
+    <h4 class="form-title" style="color: #f1c40f; text-align: center; font-size: 24px; margin-bottom: 20px;">Place Your Order</h4>
 
-							<div>
-								<label for="restaurantId">Restaurant:</label> <select
-									id="restaurantId" name="restaurantId" required>
-									<%
-									try {
-										Connection conn = dBConnection.getConnection();
-										Statement stmt = conn.createStatement();
-										ResultSet rs = stmt.executeQuery("SELECT Id, Name FROM restaurants");
-										while (rs.next()) {
-									%>
-									<option value="<%=rs.getInt("Id")%>"><%=rs.getString("Name")%></option>
-									<%
-									}
-									rs.close();
-									stmt.close();
-									} catch (Exception e) {
-									out.print(e.getMessage());
-									}
-									%>
-								</select>
-							</div>
-                             <label for="restaurantId">Restaurant:</label> 
-							<input type="email" name="email"
-								placeholder="someone@example.com" />
+    <div style="margin-bottom: 15px;">
+        <label for="restaurantId" style="display: block; font-size: 16px; margin-bottom: 5px;">Restaurant:</label>
+        <select id="restaurantId" name="restaurantId" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #007bff; background-color: #f9f9f9; font-size: 16px;">
+            <% try { 
+                Connection conn = dBConnection.getConnection(); 
+                Statement stmt = conn.createStatement(); 
+                ResultSet rs = stmt.executeQuery("SELECT Id, Name FROM restaurants"); 
+                while (rs.next()) { %>
+                    <option value="<%=rs.getInt("Id")%>"><%=rs.getString("Name")%></option>
+            <% } 
+                rs.close(); 
+                stmt.close(); 
+            } catch (Exception e) { 
+                out.print(e.getMessage()); 
+            } %>
+        </select>
+    </div>
 
-							<div>
-								<label for="noOfguests">No of guests:</label> <select
-									id="noOfguests" name="noOfguests" required>
-									<option value="1">1</option>
-									<option value="2">2</option>
-									<option value="3">3</option>
-									<option value="4">4</option>
-									<option value="5">5</option>
-									<option value="6">6</option>
-									<option value="7">7</option>
-									<option value="8">8</option>
-									<option value="9">9</option>
-									<option value="10">10</option>
-								</select>
-							</div>
+    <div style="margin-bottom: 15px;">
+        <label for="email" style="display: block; font-size: 16px; margin-bottom: 5px;">Email:</label>
+        <input type="email" name="email" placeholder="someone@example.com" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #007bff; background-color: #f9f9f9; font-size: 16px;" />
+    </div>
 
+    <div style="margin-bottom: 15px;">
+        <label for="noOfguests" style="display: block; font-size: 16px; margin-bottom: 5px;">No of guests:</label>
+        <select id="noOfguests" name="noOfguests" required style="width: 100%; padding: 10px; border-radius: 8px; border: 1px solid #007bff; background-color: #f9f9f9; font-size: 16px;">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+            <option value="10">10</option>
+        </select>
+    </div>
 
-							<script>
-								function decreaseQuantity() {
-									var input = document
-											.getElementById('quantity');
-									if (input.value > 1) {
-										input.value--;
-									}
-								}
+    <div style="margin-bottom: 15px;">
+        <label for="datetime" style="display: block; font-size: 16px; margin-bottom: 5px;">Date and Time:</label>
+        <input class="form-control" name="datetime" type="datetime-local" id="validationCustomDateTime" required style="width: 100%; padding: 12px; border-radius: 8px; border: 1px solid #007bff; background-color: #ffffff; color: #333; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); cursor: pointer;" />
+        <div class="invalid-feedback" style="color: red; font-size: 14px; margin-top: 5px;">Please select a valid date and time.</div>
+    </div>
 
-								function increaseQuantity() {
-									var input = document
-											.getElementById('quantity');
-									input.value++;
-								}
-							</script>
+<!--     <div style="display: flex; align-items: center; justify-content: center; border: 1px solid #007bff; border-radius: 8px; padding: 10px; background-color: #333; font-size: 18px; color: #f1c40f; margin-bottom: 20px;">
+        <span id="price-display" style="flex: 1; text-align: center;">Rs. 0.00</span>
+    </div> -->
 
+    <div style="display: flex; gap: 10px; width: 100%; justify-content: center;">
+        <!-- First Button -->
+        <button class="btn btn-fw btn-light" type="submit" style="background-color: #f1c40f; color: #2b2b2b; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+            PLACE ORDER
+        </button>
 
-							<br />
+        <!-- Second Button -->
+        <button class="btn btn-fw btn-light" type="button" style="background-color: red; color: #ffffff; padding: 10px 20px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer; transition: background-color 0.3s;">
+            CANCEL
+        </button>
+    </div>
+</form>
 
-							<div class="form-group has-validation"
-								style="position: relative; width: 100%;">
-								<input class="form-control" name="datetime"
-									type="datetime-local" id="validationCustomDateTime" required
-									style="padding: 12px; border-radius: 8px; border: 1px solid #007bff; background-color: #ffffff; color: #333; font-size: 16px; box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); appearance: none; cursor: pointer; width: 100%;" />
-								<div class="invalid-feedback"
-									style="color: red; font-size: 14px; margin-top: 5px;">Please
-									select a valid date and time.</div>
-							</div>
-
-
-							<br /> <br />
-
-							<div
-								style="display: flex; gap: 10px; width: 100%; max-width: 600px; margin: auto;">
-								<!-- First Button -->
-								<button class="btn btn-fw btn-light" type="submit"
-									style="background-color: #f1c40f; color: #2b2b2b; flex: 1; padding: 10px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
-									PLACE ORDER</button>
-
-								<!-- Second Button -->
-								<button class="btn btn-fw btn-light" type="button"
-									style="background-color: red; color: #ffffff; flex: 1; padding: 10px; border: none; border-radius: 5px; font-size: 16px; cursor: pointer;">
-									CANCEL</button>
-							</div>
-						</form>
 					</div>
 				</div>
 			</div>

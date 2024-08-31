@@ -151,6 +151,8 @@ tr:hover {
 </script>
 </head>
 <body class="bg-gray-100">
+    <%@ include file="../includes/adminHeader.jsp"%>
+<br/><br/><br/><br/><br/><br/><br/>
 <%--    <%@ include file="../includes/adminHeader.jsp"%>
  --%>	<!-- Toast Notification -->
 	<div id="toastCreated"
